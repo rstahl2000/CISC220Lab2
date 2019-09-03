@@ -13,10 +13,15 @@ using namespace std;
 
 void func1();
 void func2(int y);
+int func3();
 
 int main(){
 
 	func1();
+
+	int Test3=func3();
+	cout<<Test3<<endl;
+	cout<<&Test3<<endl;
 	return 0;
 
 }
@@ -31,4 +36,11 @@ void func1(){
 void func2(int y){
 	y=y+4;
 
+}
+
+int func3(){
+	int x=rand()%50;
+	cout<<x<<endl;
+	cout<<&x<<endl;
+	return x;
 }
