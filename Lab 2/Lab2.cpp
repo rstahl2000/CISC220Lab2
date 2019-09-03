@@ -1,8 +1,8 @@
 /*
  * Lab2.cpp
- *
+ *Agnijit Das
  *  Created on: Sep 3, 2019
- *      Author: robertstahl
+ *      Author: robertstahl and Chris Tiso
  */
 
 
@@ -11,5 +11,5 @@
 using namespace std;
 
 int main(){
-	return 0;
+
 }
