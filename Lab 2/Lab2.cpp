@@ -30,6 +30,10 @@ int main(){
 		cout<<Test3<<endl;
 		cout<<&Test3<<endl;
 
+	int seven=8;
+	cout<<seven<<endl;
+	cout<<&seven<<endl;
+	func5(seven);
 		return 0;
 }
 
@@ -57,6 +61,11 @@ void func4(int *z){
 
 }
 
-void func5(int num){
+void func5(int num){ //call by references
+	int random=rand()%10;
+	num+=random;
+	cout<<random<<endl;
+	cout<<num<<endl;
+	cout<<&num<<endl;
 
 }
