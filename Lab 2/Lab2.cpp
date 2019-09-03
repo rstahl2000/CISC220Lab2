@@ -15,6 +15,7 @@ void func1();
 void func2(int y);//call by value function
 int func3();
 void func4(int *z);
+void func5(int num);
 
 int main(){
 
@@ -53,5 +54,9 @@ int func3(){
 }
 
 void func4(int *z){
+
+}
+
+void func5(int num){
 
 }
