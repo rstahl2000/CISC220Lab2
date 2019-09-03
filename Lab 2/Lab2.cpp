@@ -13,6 +13,7 @@ using namespace std;
 
 void func1();
 void func2(int y);//call by value function
+void func4(int *z);
 
 int main(){
 
@@ -36,4 +37,8 @@ void func2(int y){//call by value function
 	y=y+4;
 	cout<<y<<endl;
 	cout<<&y<<endl;
+}
+
+void func4(int *z){
+
 }
