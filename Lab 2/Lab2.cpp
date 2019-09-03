@@ -1,8 +1,8 @@
 /*
  * Lab2.cpp
- *
+ *Agnijit Das
  *  Created on: Sep 3, 2019
- *      Author: robertstahl
+ *      Author: robertstahl and Chris Tiso
  */
 
 
@@ -15,8 +15,10 @@ void func1();
 void func2(int y);
 
 int main(){
+
 	func1();
 	return 0;
+
 }
 
 
