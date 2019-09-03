@@ -12,16 +12,24 @@ using namespace std;
 
 
 void func1();
+
 void func2(int y);
 int func3();
+void func2(int y);//call by value function
 
 int main(){
 
 	func1();
 
+
 	int Test3=func3();
 	cout<<Test3<<endl;
 	cout<<&Test3<<endl;
+
+	int test=4;
+	func2(test);
+	cout<<test<<endl;
+	cout<<&test<<endl;
 	return 0;
 
 }
@@ -33,9 +41,10 @@ void func1(){
 	cout<<&x<<endl;
 }
 
-void func2(int y){
+void func2(int y){//call by value function
 	y=y+4;
-
+	cout<<y<<endl;
+	cout<<&y<<endl;
 }
 
 int func3(){
