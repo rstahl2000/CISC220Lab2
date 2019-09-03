@@ -12,6 +12,7 @@ using namespace std;
 
 
 void func1();
+void func2(int y);
 
 int main(){
 	func1();
@@ -23,4 +24,9 @@ void func1(){
 	int x=2;
 	cout<<x<<endl;
 	cout<<&x<<endl;
+}
+
+void func2(int y){
+	y=y+4;
+
 }
