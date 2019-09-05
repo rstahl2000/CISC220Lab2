@@ -1,6 +1,6 @@
 /*
  * Lab2.cpp
- *Agnijit Das
+ *Sun Bilin
  *  Created on: Sep 3, 2019
  *      Author: robertstahl and Chris Tiso
  */
@@ -16,6 +16,7 @@ void func2(int y);//call by value function
 int func3();
 void func4(int *z);//call by pointer
 void func5(int num);
+void func6(int *x, int *y);
 
 int main(){
 
@@ -42,6 +43,11 @@ int main(){
 	cout<<test4<<endl;
 	cout<<&test4<<endl;
 
+	int test6a=10;
+	int test6b=20;
+	func6(&test6a,&test6b);
+	cout<<test6a<<endl;
+	cout<<test6b<<endl;
 	return 0;
 }
 
@@ -79,4 +85,11 @@ void func5(int num){ //call by references
 	cout<<num<<endl;
 	cout<<&num<<endl;
 
+}
+
+void func6(int *x, int *y){//uses call by pointer for problem 6
+	int *worker=x;
+	*worker=32;
+	worker=y;
+	*worker=42;
 }
