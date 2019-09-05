@@ -55,6 +55,9 @@ int func3(){
 
 void func4(int *z){
 
+	cout<<z<<endl;
+	cout<<*z<<endl;
+	cout<<&z<<endl;
 }
 
 void func5(int num){
