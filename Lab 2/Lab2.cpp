@@ -14,7 +14,7 @@ using namespace std;
 void func1();
 void func2(int y);//call by value function
 int func3();
-void func4(int *z);
+void func4(int *z);//call by pointer
 void func5(int num);
 
 int main(){
@@ -34,7 +34,15 @@ int main(){
 	cout<<seven<<endl;
 	cout<<&seven<<endl;
 	func5(seven);
-		return 0;
+
+	int test4=3;
+	cout<<test4<<endl;
+	cout<<&test4<<endl;
+	func4(&test4);
+	cout<<test4<<endl;
+	cout<<&test4<<endl;
+
+	return 0;
 }
 
 
@@ -57,11 +65,11 @@ int func3(){
 	return x;
 }
 
-void func4(int *z){
-
-	cout<<z<<endl;
-	cout<<*z<<endl;
-	cout<<&z<<endl;
+void func4(int *z){//call by pointer
+	*z*=*z**z;
+	cout<<*z<<endl;//prints value at the address
+	cout<<&z<<endl;//prints address in the function
+	cout<<z<<endl;//prints the address of the input parameter
 }
 
 void func5(int num){ //call by references
