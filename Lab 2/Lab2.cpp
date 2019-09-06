@@ -18,6 +18,8 @@ void func4(int *z);//call by pointer
 void func5(int num);
 void func6(int *x, int *y);
 
+bool func8a(int &a, int &b);
+
 int main(){
 
 	func1();
@@ -48,6 +50,20 @@ int main(){
 	func6(&test6a,&test6b);
 	cout<<test6a<<endl;
 	cout<<test6b<<endl;
+
+	int test8a1=4;
+	int test8a2=2;
+	func8a(test8a1,test8a2);//should swap test ints
+	cout<<test8a1<<endl;
+	cout<<test8a2<<endl;
+	func8a(test8a1,test8a2);//should keep same values
+	cout<<test8a1<<endl;
+	cout<<test8a2<<endl;
+	test8a1=10000;
+	test8a2=1;
+	func8a(test8a1,test8a2);//should swap
+	cout<<test8a1<<endl;
+	cout<<test8a2<<endl;
 	return 0;
 }
 
@@ -92,4 +108,32 @@ void func6(int *x, int *y){//uses call by pointer for problem 6
 	*worker=32;
 	worker=y;
 	*worker=42;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bool func8a(int &a,int &b){
+	bool swapped=false;
+	int swapper;
+	if(a>b){
+		swapper=a;
+		a=b;
+		b=swapper;
+		swapped=true;
+	}
+	return swapped;
 }
