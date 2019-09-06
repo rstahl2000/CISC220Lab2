@@ -9,6 +9,7 @@
 
 #include <iostream>
 using namespace std;
+#include <stdlib.h>
 
 
 void func1();
@@ -19,6 +20,8 @@ void func5(int num);
 void func6(int *x, int *y);
 void func7(char a, char *b, char &c);
 bool func8a(int &a, int &b);
+void func8b();
+
 
 int main(){
 
@@ -73,6 +76,7 @@ int main(){
 	func8a(test8a1,test8a2);//should swap
 	cout<<test8a1<<endl;
 	cout<<test8a2<<endl;
+	func8b();
 	return 0;
 }
 
@@ -141,4 +145,18 @@ bool func8a(int &a,int &b){
 		swapped=true;
 	}
 	return swapped;
+}
+
+void func8b(){
+	for(int i=0;i<=20;i++){
+	int first= rand() % 25 +1;
+	int second= rand() % 25 +1;
+	int check=first;
+	cout<<first<<" "<<second<<endl;
+	func8a(first,second);
+	cout<<first<<" "<<second<<endl;
+	if(check!=first){
+		cout<<"Values Have Been swapped"<<endl;
+	}
+	}
 }
