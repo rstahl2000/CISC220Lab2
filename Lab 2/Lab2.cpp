@@ -17,7 +17,7 @@ int func3();
 void func4(int *z);//call by pointer
 void func5(int num);
 void func6(int *x, int *y);
-
+void func7(char a, char *b, char &c);
 bool func8a(int &a, int &b);
 
 int main(){
@@ -50,6 +50,15 @@ int main(){
 	func6(&test6a,&test6b);
 	cout<<test6a<<endl;
 	cout<<test6b<<endl;
+
+	char first='c';
+	char second='u';
+	char third = 't';
+	cout<<first<<second<<third<<endl;
+	func7(first,&second, third);
+	cout<<first<<second<<third<<endl;
+
+
 
 	int test8a1=4;
 	int test8a2=2;
@@ -113,16 +122,11 @@ void func6(int *x, int *y){//uses call by pointer for problem 6
 
 
 
-
-
-
-
-
-
-
-
-
-
+void func7(char a, char *b, char &c){
+	a='m';
+	*b='a';
+	c='r';
+}
 
 
 
