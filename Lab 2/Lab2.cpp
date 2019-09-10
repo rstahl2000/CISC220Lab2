@@ -84,7 +84,6 @@ int main(){
 	int*x= B4();
 	cout<<&x<<endl;
 	int arr[5];
-	B5(&arr[0],5);
 	return 0;
 }
 
