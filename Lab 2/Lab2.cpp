@@ -10,6 +10,8 @@
 #include <iostream>
 using namespace std;
 #include <stdlib.h>
+#include "PartB.h"
+#include <time.h>
 
 
 void func1();
@@ -24,7 +26,7 @@ void func8b();
 
 
 int main(){
-
+	srand(time(NULL));
 	func1();
 
 	int test=4;
@@ -77,6 +79,12 @@ int main(){
 	cout<<test8a1<<endl;
 	cout<<test8a2<<endl;
 	func8b();
+	int trial=-1;
+	B1(10,trial);
+	int*x= B4();
+	cout<<&x<<endl;
+	int arr[5];
+	B5(&arr[0],5);
 	return 0;
 }
 
