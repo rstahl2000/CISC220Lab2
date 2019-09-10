@@ -67,7 +67,7 @@ int* B4(){
 	return &x;
 }
 
-void B5(int &arr[0],int length){
+void B5(int* arr,int length){
 	for(int i=0;i<length;i++){
 		cout<<arr[i]<<",";
 	}

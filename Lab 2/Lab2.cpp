@@ -79,11 +79,21 @@ int main(){
 	cout<<test8a1<<endl;
 	cout<<test8a2<<endl;
 	func8b();
+
 	int trial=-1;
 	B1(10,trial);
+	B2(5);
+	B3(5,5);
 	int*x= B4();
 	cout<<&x<<endl;
-	int arr[5];
+
+	int arr[25];
+	for(int x=0;x<25;x++){
+		arr[x]=rand()%10 +1;
+		cout<<arr[x]<<",";
+	}
+	cout<<endl;
+	B5(&arr[0],0);
 	return 0;
 }
 
