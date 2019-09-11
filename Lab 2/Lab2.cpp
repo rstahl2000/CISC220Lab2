@@ -331,3 +331,7 @@ int B11(int* arr,int length){
 	cout<<sum/divide<<endl;
 	return (sum/divide);
 }
+
+void B12(int* arr,int length){
+
+}
