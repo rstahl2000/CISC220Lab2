@@ -10,8 +10,8 @@
 #include <iostream>
 using namespace std;
 #include <stdlib.h>
-#include "PartB.h"
 #include <time.h>
+#include <cmath>
 
 
 void func1();
@@ -23,7 +23,16 @@ void func6(int *x, int *y);
 void func7(char a, char *b, char &c);
 bool func8a(int &a, int &b);
 void func8b();
-
+void B1(int length, int &pass);
+void B2(int length);
+int* B4();
+void B3(int length,int range);
+void B5(int* arr,int length);
+int* B6(int* size,int* high,int* low);
+void B8(int *arr,int length);
+void B9(double *arr,double length);
+int* B10(int *arr,int *length);
+int B11(int* arr,int length);
 
 int main(){
 	srand(time(NULL));
@@ -100,7 +109,20 @@ int main(){
 	int size;
 	int high;
 	int low;
-	B5(B6(&size,&high,&low),size);
+	B6(&size,&high,&low);
+
+	int Test[4]={1,2,3,4};
+	B8(Test,4);
+
+	double TestTwo[3]={2.5,9.5,4.5};
+	B9(TestTwo,3);
+
+	int Testing[12]={1,3,5,2,6,9,5,5,5,5,5,7};
+	int e=12;
+	B10(Testing,&e);
+
+	int window[5]={1,3,2,5,6};
+	B11(window,5);
 	return 0;
 }
 
@@ -183,4 +205,129 @@ void func8b(){
 		cout<<"Values Have Been swapped"<<endl;
 	}
 	}
+}
+void B1(int length, int &pass){
+	int arr[length];
+	for(int i=0;i<length;i++){
+		arr[i]= rand()% 50 +1;
+		cout<<arr[i]<<",";
+	}
+	cout<<endl;
+	pass=arr[0];
+	for(int x=0;x<length;x++){
+		if(arr[x]<=pass){
+			pass=arr[x];
+		}
+	}
+	arr[3]=pass;
+	cout<<arr[3]<<endl;
+}
+
+void B2(int length){
+	int arr[length];
+	for(int i=0;i<length;i++){
+			arr[i]= rand()% 50 +1;
+			cout<<arr[i]<<",";
+		}
+	cout<<endl;
+	for(int x=length-1;x>=0;x--){
+		cout<<arr[x]<<",";
+	}
+	cout<<endl;
+}
+
+void B3(int length,int range){
+	int arr[length];
+	for(int i=0;i<=0;i++){
+		arr[i]=rand() %range;
+	}
+	for(int x=0;x<length;x++){
+		for(int y=x+1;y<length;y++){
+			if (arr[x]>arr[y]){
+				int hold = arr[x];
+				arr[x]=arr[y];
+				arr[y]=hold;
+			}
+		}
+	}
+	for(int z=0;z<length;z++){
+			cout<<arr[z]<<",";
+}
+	cout<<endl;
+}
+int* B4(){
+	int x=3;
+	cout<<x<<endl;
+	cout<<&x<<endl;
+	return &x;
+}
+
+void B5(int* arr,int length){
+	for(int i=0;i<length;i++){
+		cout<<arr[i]<<",";
+	}
+	cout<<endl;
+}
+int* B6(int* size,int* high,int* low){
+	srand(time(NULL));
+	*size=rand()% 25 +25;
+	*high=(rand()%5)+5;
+	*low=-1*((rand()% 5) +5);
+	int *arr= new int[*size];
+	for(int i=0;i<*size;i++){
+		arr[i]=rand()%(*high-*low)-*high;
+		cout<<arr[i]<<",";
+	}
+	cout<<endl;
+	return arr;
+
+
+}
+
+void B8(int *arr,int length){
+	for(int x=0;x<length;x++){
+		cout<<&arr[x]<<",";
+	}
+	cout<<endl;
+}
+
+void B9(double *arr,double length){
+	for(int x=0;x<length;x++){
+			cout<<&arr[x]<<",";
+		}
+		cout<<endl;
+}
+
+int* B10(int *arr,int *length){
+	int *r=new int[*length];
+	int temp=0;
+	for(int i=0;i<*length;i++){
+		if(arr[i]!=arr[i-1]){
+			r[temp]=arr[i];
+			temp++;
+		}
+	}
+	for(int y=0;y<temp;y++){
+		cout<<r[y]<<",";
+		*length=y;
+	}
+	cout<<endl;
+	return r;
+}
+int B11(int* arr,int length){
+	int sum=0;
+	int mult=1;
+	int divide=0;
+	for(int i=0;i<length;i++){
+		sum+= mult *arr[i];
+		divide+=mult;
+		if(i+1 <= (length/2)+.5){
+			mult++;
+		}
+		else{
+			mult--;
+		}
+	}
+	cout<<sum/divide<<endl;
+	return (sum/divide);
 }
