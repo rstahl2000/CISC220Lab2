@@ -367,3 +367,10 @@ void B13(int* arr,int high, int low,int length){
 		cout<<endl;
 	}
 }
+int* B14(int* first,int* second){
+	int x=rand()%5 +6;
+	int y=rand()%4 +5;
+	*first=x;
+	*second=y;
+	int 2d
+}
