@@ -73,3 +73,16 @@ void B5(int* arr,int length){
 	}
 	cout<<endl;
 }
+int* B6(int *size,int *high,int *low){
+	*size=rand()% 25+25;
+	int arr[*size];
+	*high=rand()%5+6;
+	*low=rand()% -5 -6;
+	for(int i=0;i<*size;i++){
+		arr[i]=rand()%*low +(*high-*low);
+	}
+	return arr;
+
+
+}
+

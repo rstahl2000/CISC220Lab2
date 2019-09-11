@@ -83,7 +83,9 @@ int main(){
 	int trial=-1;
 	B1(10,trial);
 	B2(5);
+
 	B3(5,5);
+
 	int*x= B4();
 	cout<<&x<<endl;
 
@@ -94,6 +96,11 @@ int main(){
 	}
 	cout<<endl;
 	B5(&arr[0],0);
+
+	int size;
+	int high;
+	int low;
+	B5(B6(&size,&high,&low),size);
 	return 0;
 }
 
