@@ -13,7 +13,7 @@ using namespace std;
 #include <time.h>
 #include <cmath>
 
-
+void Stars();
 void func1();
 void func2(int y);//call by value function
 int func3();
@@ -367,10 +367,31 @@ void B13(int* arr,int high, int low,int length){
 		cout<<endl;
 	}
 }
-int* B14(int* first,int* second){
-	int x=rand()%5 +6;
-	int y=rand()%4 +5;
-	*first=x;
-	*second=y;
-	int 2d
+int** B14(int* x, int* y){
+	*x=rand()%5+6;
+	*y=rand()%4+5;
+	int **array;
+	array=new int*[*x];
+	for(int i=0;i<*x;i++){
+		array[*x]=new int[*y];
+		for (int j=0;j<*y;j++){
+			array[*x][*y]=0;
+		}
+	}
+	int count=0;
+	int xplace;
+	int yplace;
+	while(count<6){
+		xplace=rand()%*x;
+		yplace=rand()%*y;
+		if(array[xplace][yplace]==0){
+			array[xplace][yplace]=1;
+			count++;
+		}
+	}
+	return array;
+}
+
+void Stars(){
+	cout<<"********"<<endl;
 }
