@@ -33,6 +33,8 @@ void B8(int *arr,int length);
 void B9(double *arr,double length);
 int* B10(int *arr,int *length);
 int B11(int* arr,int length);
+void B12(int* arr,int length);
+void B13(int* arr,int high, int low,int length);
 
 int main(){
 	srand(time(NULL));
@@ -123,6 +125,10 @@ int main(){
 
 	int window[5]={1,3,2,5,6};
 	B11(window,5);
+
+	B12(window,5);
+
+	B13(window,6,1,5);
 	return 0;
 }
 
@@ -333,5 +339,31 @@ int B11(int* arr,int length){
 }
 
 void B12(int* arr,int length){
+	int* filter=new int[length];
+	filter[0]=0;
+	filter[length-1]=0;
+	for(int i=1;i<length-1;i++){
+		filter[i]=(arr[i]+arr[i+1]+arr[i-1])/3;
+	}
+	for(int x=0;x<length;x++){
+		cout<<filter[x]<<",";
+	}
+	cout<<endl;
+}
 
+void B13(int* arr,int high, int low,int length){
+	int distance=high-low;
+	for(int i=0;i<=distance;i++){
+		cout<<high-i<<":";
+		int number=high-i;
+		for(int j=0;j<length;j++){
+			if(arr[j]==number){
+				cout<<"*";
+			}
+			else{
+				cout<<" ";
+			}
+		}
+		cout<<endl;
+	}
 }
