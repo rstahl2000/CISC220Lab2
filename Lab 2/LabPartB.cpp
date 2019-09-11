@@ -9,6 +9,7 @@
 #include "PartB.h"
 #include <iostream>
 #include <stdlib.h>
+#include <time.h>
 using namespace std;
 
 void B1(int length, int &pass){
@@ -74,12 +75,13 @@ void B5(int* arr,int length){
 	cout<<endl;
 }
 int* B6(int *size,int *high,int *low){
-	*size=rand()% 25+25;
+	srand(time(NULL));
+	*size=(rand()% 25)+25;
 	int arr[*size];
-	*high=rand()%5+6;
-	*low=rand()% -5 -6;
+	*high=(rand()%5)+5;
+	*low=(rand()% 5) -10;
 	for(int i=0;i<*size;i++){
-		arr[i]=rand()%*low +(*high-*low);
+		arr[i]=(rand()%(*high-*low))+*low;
 	}
 	return arr;
 
