@@ -13,6 +13,14 @@ using namespace std;
 #include <time.h>
 #include <cmath>
 
+
+//Try On Computer
+void swap(int *x, int *y);
+void swapSecond(int &x, int &y);
+
+
+
+
 void Stars();
 void A1();
 void A2(int y);//call by value function
@@ -39,50 +47,91 @@ int** B14(int* x, int* y);
 
 
 int main(){
-	srand(time(NULL));
+	srand(time(NULL));//To Make the seed be random each time
+
+
+	//Try On Computer
+
+	int twelve = 3;
+	cout<<twelve<<endl;
+	cout<<&twelve<<endl;
+	Stars();
+
+	int OnComputer;
+	int *Try = &OnComputer;
+	cout<<*Try<<endl;
+	cout<<&Try<<endl;
+	cout<<&*Try<<endl;
+	Stars();
+
+	int hi = 42;
+	int *hello = &hi;
+	*hello = 55;
+	cout<<*hello<<endl;
+
+	Stars();
+
+	int swap1=2;
+	int swap2=4;
+	int *two = &swap1;
+	int *four = &swap2;
+	swap(two,four);
+	swapSecond(swap1,swap2);
+	Stars();
+	Stars();
+
+	//START OF LAB 2
+	//Prints out value and the address of the variable.
 	A1();
+	Stars();
 
 	int test=4;
-	A2(test);
+	A2(test);//This is call by value. It prints out the variable and addresses of the variable in and out of the function. The value does not change outside the function
 	cout<<test<<endl;
 	cout<<&test<<endl;
+	Stars();
 
-	int Test3=A3();
+	int Test3=A3();//returns a number that is a random number from 1 to 50. Also prints the address and the number
 	cout<<Test3<<endl;
 	cout<<&Test3<<endl;
+	Stars();
 
 	int test4=3;
 	cout<<test4<<endl;
 	cout<<&test4<<endl;
-	A4(&test4);
+	A4(&test4);//Call by pointer function showing that the address of the value does not change but the value does change. The other address is the address the pointer points to
 	cout<<test4<<endl;
 	cout<<&test4<<endl;
 
+	Stars();
 
 	int seven=8;
 	cout<<seven<<endl;
 	cout<<&seven<<endl;
-	A5(seven);
+	A5(seven);//uses call by reference. Does same thing as number 4 but uses call by reference
 
+	Stars();
 
 	int test6a=10;
 	int test6b=20;
-	A6(&test6a,&test6b);
+	A6(&test6a,&test6b);//Uses call by reference to change the values of the two parameters
 	cout<<test6a<<endl;
 	cout<<test6b<<endl;
+	Stars();
 
 	char first='c';
 	char second='u';
 	char third = 't';
 	cout<<first<<second<<third<<endl;
-	A7(first,&second, third);
+	A7(first,&second, third);//using call by value, call by reference, and call by pointer, this function takes in the word cut and changes it to the word cat
 	cout<<first<<second<<third<<endl;
 
 
+	Stars();
 
 	int test8a1=4;
 	int test8a2=2;
-	A8a(test8a1,test8a2);//should swap test ints
+	A8a(test8a1,test8a2);//Swaps first value with second if first is larger. This one changes swaos for the test
 	cout<<test8a1<<endl;
 	cout<<test8a2<<endl;
 	A8a(test8a1,test8a2);//should keep same values
@@ -93,16 +142,22 @@ int main(){
 	A8a(test8a1,test8a2);//should swap
 	cout<<test8a1<<endl;
 	cout<<test8a2<<endl;
-	A8b();
+	A8b();//loops 20 times through the swap functions
+	Stars();
 
 	int trial=-1;
-	B1(10,trial);
-	B2(5);
+	B1(10,trial);//Makes an array and sets the values to 0 through 50. Then sets the 3rd index to hold the smallest value
+	Stars();
 
-	B3(5,5);
+	B2(5);//reverses an array
+	Stars();
 
-	int*x= B4();
+	B3(5,5);//Makes an array the first parameter is the length of the array and the second parameter is what values the indexes should be
+	Stars();
+
+	int*x= B4();//Worked but kept giving warnings
 	cout<<&x<<endl;
+	Stars();
 
 	int arr[25];
 	for(int x=0;x<25;x++){
@@ -110,41 +165,78 @@ int main(){
 		cout<<arr[x]<<",";
 	}
 	cout<<endl;
-	B5(&arr[0],0);
+	B5(&arr[0],0);//Makes an array of a given size and then prints it
+	Stars();
 
 	int size;
 	int high;
 	int low;
-	B6(&size,&high,&low);
+	B5(B6(&size,&high,&low),size);//uses B5 to print out the new function. This new function creates a new array with a random size, high value and low value
+	Stars();
+
+
+	//B7(27) This does not work because the array on the heap is not deleting
+
 
 	int Test[4]={1,2,3,4};
-	B8(Test,4);
+	B8(Test,4);//prints out the address of every int in the array
+	Stars();
 
 	double TestTwo[3]={2.5,9.5,4.5};
-	B9(TestTwo,3);
+	B9(TestTwo,3);//prints out an the address of every double in an array
+	Stars();
 
 	int Testing[12]={1,3,5,2,6,9,5,5,5,5,5,7};
 	int e=12;
-	B10(Testing,&e);
+	B10(Testing,&e);//gets rid of duplicate numbers next to each other
+	Stars();
 
 	int window[5]={1,3,2,5,6};
-	B11(window,5);
+	B11(window,5);//does hanning window
+	Stars();
 
-	B12(window,5);
+	B12(window,5);//Filters an array
+	Stars();
 
-	B13(window,6,1,5);
+	B13(window,6,1,5);//Creates a graph of the array, making a star for each value in the array in the place it holds
+	Stars();
 
-	int* xx=0;
-	int* yy=0;
-	/*int** TwoDArray=*B14(*xx,*yy);
-	for(int x=0;x<2;x++){
-		B5(TwoDArray,*xx);
+	int xx=3;
+	int yy=3;
+	int **TwoD=B14(&xx,&yy);//This creates a two dimensional array
+	for(int zz=0;zz<xx;zz++){
+		int* vv=TwoD[zz];
+		for(int cc=0;cc<yy;cc++){
+			B5(&vv[0],yy);
+			cout<<TwoD[zz][cc]<<",";
+		}
 	}
-	*/
+	cout<<endl;
+	Stars();
+
 	return 0;
 }
 
 
+//Try On Computer
+void swap(int *m, int *n) {
+	int* tmp = m;
+	m = n;
+	n = tmp;
+	cout<<*m<<","<<*n<<endl;
+
+}
+
+void swapSecond(int &m, int &n) {
+int tmp = m;
+m = n;
+n = tmp;
+cout<<m<<","<<n<<endl;
+}
+
+
+
+//START OF LAB2
 void A1(){
 	int x=2;
 	cout<<x<<endl;
@@ -213,13 +305,13 @@ bool A8a(int &a,int &b){
 
 void A8b(){
 	for(int i=0;i<=20;i++){
-	int first= rand() % 25 +1;
-	int second= rand() % 25 +1;
-	int check=first;
-	cout<<first<<" "<<second<<endl;
-	A8a(first,second);
-	cout<<first<<" "<<second<<endl;
-	if(check!=first){
+		int first= rand() % 25 +1;
+		int second= rand() % 25 +1;
+		int check=first;
+		cout<<first<<" "<<second<<endl;
+		A8a(first,second);
+		cout<<first<<" "<<second<<endl;
+		if(check!=first){
 		cout<<"Values Have Been swapped"<<endl;
 	}
 	}
@@ -301,7 +393,14 @@ int* B6(int* size,int* high,int* low){
 
 
 }
-
+ /*/int* B7(int num){
+	int *arr=new int[num];
+	for(int i=0;i<num;i++){
+		arr[i]=rand()%100;
+	}
+	return &arr[0];
+}
+*/
 void B8(int *arr,int length){
 	for(int x=0;x<length;x++){
 		cout<<&arr[x]<<",";
@@ -379,29 +478,31 @@ void B13(int* arr,int high, int low,int length){
 		cout<<endl;
 	}
 }
-int** B14(int* x, int* y){
-	*x=rand()%5+6;
-	*y=rand()%4+5;
-	int **array;
-	array=new int*[*x];
-	for(int i=0;i<*x;i++){
-		array[*x]=new int[*y];
-		for (int j=0;j<*y;j++){
-			array[*x][*y]=0;
+int** B14(int* x, int* y) {
+	int a = rand() % 5 +6;
+	int b = rand() % 4 +5;
+	*x = a;
+	*y = b;
+
+	int** arr = new int*[*x];
+	for (int i = 0;i<*x;i++) {
+		arr[i] = new int[*y];
+		for (int j=0;j<*y;j++) {
+			arr[i][j] = 0;
 		}
 	}
-	int count=0;
-	int xplace;
-	int yplace;
-	while(count<6){
-		xplace=rand()%*x;
-		yplace=rand()%*y;
-		if(array[xplace][yplace]==0){
-			array[xplace][yplace]=1;
+	int count = 0;
+	int xval;
+	int yval;
+	while(count < 5) {
+		xval = rand() % *x;
+		yval = rand() % *y;
+		if (arr[xval][yval] == 0) {
+			arr[xval][yval] = 1;
 			count++;
 		}
 	}
-	return array;
+	return arr;
 }
 
 void Stars(){
