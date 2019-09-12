@@ -14,15 +14,15 @@ using namespace std;
 #include <cmath>
 
 void Stars();
-void func1();
-void func2(int y);//call by value function
-int func3();
-void func4(int *z);//call by pointer
-void func5(int num);
-void func6(int *x, int *y);
-void func7(char a, char *b, char &c);
-bool func8a(int &a, int &b);
-void func8b();
+void A1();
+void A2(int y);//call by value function
+int A3();
+void A4(int *z);//call by pointer
+void A5(int num);
+void A6(int *x, int *y);
+void A7(char a, char *b, char &c);
+bool A8a(int &a, int &b);
+void A8b();
 void B1(int length, int &pass);
 void B2(int length);
 int* B4();
@@ -40,32 +40,34 @@ int** B14(int* x, int* y);
 
 int main(){
 	srand(time(NULL));
-	func1();
+	A1();
 
 	int test=4;
-	func2(test);
+	A2(test);
 	cout<<test<<endl;
 	cout<<&test<<endl;
 
-	int Test3=func3();
-		cout<<Test3<<endl;
-		cout<<&Test3<<endl;
-
-	int seven=8;
-	cout<<seven<<endl;
-	cout<<&seven<<endl;
-	func5(seven);
+	int Test3=A3();
+	cout<<Test3<<endl;
+	cout<<&Test3<<endl;
 
 	int test4=3;
 	cout<<test4<<endl;
 	cout<<&test4<<endl;
-	func4(&test4);
+	A4(&test4);
 	cout<<test4<<endl;
 	cout<<&test4<<endl;
 
+
+	int seven=8;
+	cout<<seven<<endl;
+	cout<<&seven<<endl;
+	A5(seven);
+
+
 	int test6a=10;
 	int test6b=20;
-	func6(&test6a,&test6b);
+	A6(&test6a,&test6b);
 	cout<<test6a<<endl;
 	cout<<test6b<<endl;
 
@@ -73,25 +75,25 @@ int main(){
 	char second='u';
 	char third = 't';
 	cout<<first<<second<<third<<endl;
-	func7(first,&second, third);
+	A7(first,&second, third);
 	cout<<first<<second<<third<<endl;
 
 
 
 	int test8a1=4;
 	int test8a2=2;
-	func8a(test8a1,test8a2);//should swap test ints
+	A8a(test8a1,test8a2);//should swap test ints
 	cout<<test8a1<<endl;
 	cout<<test8a2<<endl;
-	func8a(test8a1,test8a2);//should keep same values
+	A8a(test8a1,test8a2);//should keep same values
 	cout<<test8a1<<endl;
 	cout<<test8a2<<endl;
 	test8a1=10000;
 	test8a2=1;
-	func8a(test8a1,test8a2);//should swap
+	A8a(test8a1,test8a2);//should swap
 	cout<<test8a1<<endl;
 	cout<<test8a2<<endl;
-	func8b();
+	A8b();
 
 	int trial=-1;
 	B1(10,trial);
@@ -131,37 +133,45 @@ int main(){
 	B12(window,5);
 
 	B13(window,6,1,5);
+
+	int* xx=0;
+	int* yy=0;
+	/*int** TwoDArray=*B14(*xx,*yy);
+	for(int x=0;x<2;x++){
+		B5(TwoDArray,*xx);
+	}
+	*/
 	return 0;
 }
 
 
-void func1(){
+void A1(){
 	int x=2;
 	cout<<x<<endl;
 	cout<<&x<<endl;
 }
 
-void func2(int y){//call by value function
+void A2(int y){//call by value function
 	y=y+4;
 	cout<<y<<endl;
 	cout<<&y<<endl;
 }
 
-int func3(){
+int A3(){
 	int x=rand()%50;
 	cout<<x<<endl;
 	cout<<&x<<endl;
 	return x;
 }
 
-void func4(int *z){//call by pointer
+void A4(int *z){//call by pointer
 	*z*=*z**z;
 	cout<<*z<<endl;//prints value at the address
 	cout<<&z<<endl;//prints address in the function
 	cout<<z<<endl;//prints the address of the input parameter
 }
 
-void func5(int num){ //call by references
+void A5(int num){ //call by references
 	int random=rand()%10;
 	num+=random;
 	cout<<random<<endl;
@@ -170,7 +180,7 @@ void func5(int num){ //call by references
 
 }
 
-void func6(int *x, int *y){//uses call by pointer for problem 6
+void A6(int *x, int *y){//uses call by pointer for problem 6
 	int *worker=x;
 	*worker=32;
 	worker=y;
@@ -180,7 +190,7 @@ void func6(int *x, int *y){//uses call by pointer for problem 6
 
 
 
-void func7(char a, char *b, char &c){
+void A7(char a, char *b, char &c){
 	a='m';
 	*b='a';
 	c='r';
@@ -189,7 +199,7 @@ void func7(char a, char *b, char &c){
 
 
 
-bool func8a(int &a,int &b){
+bool A8a(int &a,int &b){
 	bool swapped=false;
 	int swapper;
 	if(a>b){
@@ -201,13 +211,13 @@ bool func8a(int &a,int &b){
 	return swapped;
 }
 
-void func8b(){
+void A8b(){
 	for(int i=0;i<=20;i++){
 	int first= rand() % 25 +1;
 	int second= rand() % 25 +1;
 	int check=first;
 	cout<<first<<" "<<second<<endl;
-	func8a(first,second);
+	A8a(first,second);
 	cout<<first<<" "<<second<<endl;
 	if(check!=first){
 		cout<<"Values Have Been swapped"<<endl;
@@ -396,29 +406,4 @@ int** B14(int* x, int* y){
 
 void Stars(){
 	cout<<"********"<<endl;
-
-
-int** B14(int* x, int* y){
-	*x=rand()%5+5;
-	*y=rand()%4+4;
-	int **array;
-	array=new int*[*x];
-	for(int i=0;i<*x;i++){
-		array[*x]=new int[*y];
-		for (int j=0;j<*y;j++){
-			array[*x][*y]=0;
-		}
-	}
-	int count=0;
-	int xplace;
-	int yplace;
-	while(count<6){
-		xplace=rand()%*x;
-		yplace=rand()%*y;
-		if(array[xplace][yplace]==0){
-			array[xplace][yplace]=1;
-			count++;
-		}
-	}
-	return array;
 }
